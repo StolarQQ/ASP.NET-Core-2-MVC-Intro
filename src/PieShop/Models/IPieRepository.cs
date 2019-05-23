@@ -2,7 +2,7 @@
 
 namespace PieShop.Models
 {
-    interface IPieRepository
+    public interface IPieRepository
     {
         IEnumerable<Pie> GetAllPies();
 
