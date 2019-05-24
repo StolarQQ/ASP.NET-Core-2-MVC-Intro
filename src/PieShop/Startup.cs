@@ -20,7 +20,7 @@ namespace PieShop
         {
             services.AddMvc();
             services.AddTransient<IPieRepository, PieRepository>();
-
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
@@ -35,7 +35,13 @@ namespace PieShop
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

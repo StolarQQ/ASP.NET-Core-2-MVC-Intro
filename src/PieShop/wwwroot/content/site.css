@@ -1,8 +1,20 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-image: url('../images/pattern.png');
-    background-repeat: repeat;
+﻿html {
+    font-size: 20px;
+}
+
+body {
+    padding-bottom: 160px;
+    background-repeat: no-repeat;
+    font-family: 'Rubik', sans-serif;
+    color: black;
+    background: darkcyan;
+
+}
+
+body a {
+ 
+    color: black;
+   
 }
 
 .body-content {
@@ -10,8 +22,37 @@
     padding-right: 30px;
 }
 
+.container {
+    padding-top: 100px;
+    background: aquamarine;
+}
 
-h3 {
+.navbar {
 
-    font-size: 50px;
+    background: violet !important;
+}
+
+.hero {
+    background: aqua;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: none;
+}
+
+.wrapper {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.border {
+    margin: 0px !important;
+    border-style: dashed;
+    color: black;
 }

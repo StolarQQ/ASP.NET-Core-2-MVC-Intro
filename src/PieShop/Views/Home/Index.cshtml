@@ -1,28 +1,85 @@
-﻿@{
-    Layout = "_Layout";
-}
+﻿@model HomeViewModel
 
-@model PieShop.ViewModels.HomeViewModel
+<main>
 
+    <header class="hero">
+        <h1 class="hero_header">
+            <span class="special">Hello on Cake Website !</span>
+        </h1>
+    </header>
 
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a class="nav__link" href="#cake-list">
+                    cake
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="#do-obejrzenia">
+                    info
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-@foreach (var pie in Model.Pies)
-{
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <img src="@pie.ImageThumbnailUrl" alt="">
-            <div class="caption">
-                <h3 class="pull-right">@pie.Price.ToString("c")</h3>
-                <h3>
-                    @pie.Name
-                </h3>
-                <p>@pie.ShortDescription</p>
+    
+    <div class="container body-content">
+    <div class="row">
+
+    
+
+    <section id="cake-list" class="content">
+        <h2 class="content__header">
+            <span class="special">Cake info</span>
+        </h2>
+
+        <div class="container">
+            <div class="row">
+
+                @foreach (var pie in Model.Pies)
+                {
+                    <div class="col-4 border">
+                        <div class="thumbnail">
+                            <img src="@pie.ImageThumbnailUrl" alt="">
+                            <div class="caption">
+                                <h3 class="pull-left">@pie.Price.ToString("c")</h3>
+                                <h3>
+                                    <a asp-controller="Home" asp-action="Details"
+                                       asp-route-id="@pie.Id">@pie.Name</a>
+                                </h3>
+                                <p>@pie.ShortDescription</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
             </div>
         </div>
+    </section>
+
+    <section id="cake-info" class="content">
+
+        <h2 class="content__header">
+            <span class="special">Cake info</span>
+        </h2>
+        <div class="wrapper">
+            <ol class="panic">
+                <li class="panic__item">Sprawdź czy plik jest zapisany</li>
+                <li class="panic__item">Sprawdź czy edytujesz dobry plik</li>
+                <li class="panic__item">Sprawdź czy odświeżyłaś/eś stronę</li>
+                <li class="panic__item">Zerknij w konsolę</li>
+                <li class="panic__item">Zrestartuj kompa</li>
+            </ol>
+        </div>
+
+    </section>
+    
     </div>
-}
+    </div>
 
+</main>
 
-
-
-
+<footer class="footer">
+    Madeby Stolar !
+</footer>

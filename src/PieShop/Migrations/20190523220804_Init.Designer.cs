@@ -9,8 +9,8 @@ using PieShop.Models;
 namespace PieShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190523215209_InitKey")]
-    partial class InitKey
+    [Migration("20190523220804_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,21 +26,27 @@ namespace PieShop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ImageThumbnailUrl");
+                    b.Property<string>("ImageThumbnailUrl")
+                        .IsRequired();
 
-                    b.Property<string>("ImageUrl");
+                    b.Property<string>("ImageUrl")
+                        .IsRequired();
 
                     b.Property<bool>("IsInStock");
 
                     b.Property<bool>("IsPieOfTheWeek");
 
-                    b.Property<string>("LongDescription");
+                    b.Property<string>("LongDescription")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<decimal>("Price");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(5, 2)");
 
-                    b.Property<string>("ShortDescription");
+                    b.Property<string>("ShortDescription")
+                        .IsRequired();
 
                     b.HasKey("Id");
 

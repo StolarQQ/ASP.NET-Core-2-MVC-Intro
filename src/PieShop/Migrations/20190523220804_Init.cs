@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PieShop.Migrations
 {
-    public partial class InitKey : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +13,12 @@ namespace PieShop.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    ShortDescription = table.Column<string>(nullable: true),
-                    LongDescription = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false),
-                    ImageUrl = table.Column<string>(nullable: true),
-                    ImageThumbnailUrl = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    ShortDescription = table.Column<string>(nullable: false),
+                    LongDescription = table.Column<string>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(5, 2)", nullable: false),
+                    ImageUrl = table.Column<string>(nullable: false),
+                    ImageThumbnailUrl = table.Column<string>(nullable: false),
                     IsPieOfTheWeek = table.Column<bool>(nullable: false),
                     IsInStock = table.Column<bool>(nullable: false)
                 },
